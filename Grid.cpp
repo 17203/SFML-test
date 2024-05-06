@@ -18,8 +18,14 @@ Grid::Grid(int rows, int cols){
 
 void Grid::drawTo(RenderWindow &window){
     for(int i=0; i<rows; i++){
-        for(int j=0; j<rows; j++){
+        for(int j=0; j<cols; j++){
+            
 
+            RectangleShape rect(Vector2f(40,40));
+            rect.setOutlineColor(Color::Magenta);
+            rect.setOutlineThickness(1);
+            rect.setPosition(Vector2f(j*40,i*40));
+            window.draw(rect);
         }
     }
 
