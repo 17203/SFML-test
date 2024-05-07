@@ -23,19 +23,23 @@ int main()
                     int x = event.mouseButton.x;
                     int y = event.mouseButton.y;
                     grid.click(x,y);
-                }
+                }}
             if(event.type==Event::MouseButtonPressed){
                 if(event.mouseButton.button==Mouse::Right){
                     grid.uptdate();
                 }
             }
-        }
-
-        window.clear();
-        grid.drawTo(window);
-        window.display();
+            if(event.type==Event::KeyPressed){
+                if(event.key.code==Keyboard::Space){
+                    grid.uptdate();
+                }
+            }
+        
+    }   
+    window.clear();
+    
+    grid.drawTo(window);
+    window.display();
     }
-
-    return 0;
-}
+return 0;
 }
