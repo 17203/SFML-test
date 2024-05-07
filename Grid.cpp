@@ -1,5 +1,4 @@
 #include "Grid.hpp"
-/*
 Grid::Grid(int rows, int cols){
     
     this->rows = rows;
@@ -13,7 +12,8 @@ Grid::Grid(int rows, int cols){
         }
 
     }
-}*/
+    this->next = vector<vector<int>>(rows,vector<int>(cols,0));
+}
 Grid::Grid(int rows, int cols, int width, int height){
     
     this->rows = rows;
@@ -24,11 +24,12 @@ Grid::Grid(int rows, int cols, int width, int height){
     for(int i=0; i<rows; i++){
         this->grid.push_back({});
         for(int j=0; j<cols; j++){
-            this->grid[i].push_back(rand()%2);
+            this->grid[i].push_back(0);
 
         }
 
     }
+    this->next = vector<vector<int>>(rows,vector<int>(cols,0));
 }
 
 void Grid::drawTo(RenderWindow &window){
@@ -59,4 +60,26 @@ void Grid::click(int x, int y){
         grid[indexX][indexY]=1;
     }else
     {grid[indexX][indexY]=0;}
+}
+
+void Grid::uptdate(){
+    for(int i=0; i<rows;i++){
+        for(int j=0; j<cols; j++){
+            if(this->grid[i][j]==1){
+                if(j==this->cols-1){
+                    this->next[i][j]=1;
+                }
+                else{
+                if(this->grid[i][j+1]==0){
+                this->next[i][j]=0;
+                this->next[i][j+1]=1;
+                }else{
+                    this->next[i][j]=1;
+                }
+            }
+        }
+    }
+}
+this->grid=this->next;
+
 }
