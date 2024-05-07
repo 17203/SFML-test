@@ -3,11 +3,11 @@
 using namespace sf;
 
 int width = 800;
-int height = 800;
-int numCells = 10;
+int height = 1000;
+int numCells = 20;
 int main()
 {
-    RenderWindow window(VideoMode(width, height), ":D!");
+    RenderWindow window(VideoMode(width, height), "Game of life");
     window.setFramerateLimit(5);
 
     Grid grid(numCells,numCells,width,height);
@@ -24,14 +24,18 @@ int main()
                     int y = event.mouseButton.y;
                     grid.click(x,y);
                 }
+            if(event.type==Event::MouseButtonPressed){
+                if(event.mouseButton.button==Mouse::Right){
+                    grid.uptdate();
+                }
             }
         }
 
         window.clear();
-        grid.uptdate();
         grid.drawTo(window);
         window.display();
     }
 
     return 0;
+}
 }
