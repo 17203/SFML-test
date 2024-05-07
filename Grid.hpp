@@ -10,11 +10,14 @@ private:
 int rows, cols;
 int sizeX, sizeY;
 Vector2i size;
+vector<vector<int>> next;
 vector <vector<int>> grid;
 
 public:
+    Grid(int rows, int cols);
     Grid(int rows, int cols, int width, int height);
-
+    
+    void uptdate();
     void drawTo(RenderWindow &window);
     void click(int x, int y);
     

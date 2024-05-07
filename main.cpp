@@ -7,8 +7,8 @@ int height = 800;
 int numCells = 10;
 int main()
 {
-    RenderWindow window(VideoMode(width, height), "Sexo!");
-    window.setFramerateLimit(60);
+    RenderWindow window(VideoMode(width, height), ":D!");
+    window.setFramerateLimit(5);
 
     Grid grid(numCells,numCells,width,height);
     while (window.isOpen())
@@ -28,6 +28,7 @@ int main()
         }
 
         window.clear();
+        grid.uptdate();
         grid.drawTo(window);
         window.display();
     }
