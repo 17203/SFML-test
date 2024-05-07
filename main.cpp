@@ -3,11 +3,11 @@
 using namespace sf;
 
 int width = 800;
-int height = 1000;
-int numCells = 1000;
+int height = 800;
+int numCells = 10;
 int main()
 {
-    RenderWindow window(VideoMode(width, height), "SFML works!");
+    RenderWindow window(VideoMode(width, height), "Sexo!");
     window.setFramerateLimit(60);
 
     Grid grid(numCells,numCells,width,height);
@@ -18,6 +18,13 @@ int main()
         {
             if (event.type == Event::Closed)
                 window.close();
+            if(event.type==Event::MouseButtonPressed){
+                if(event.mouseButton.button==Mouse::Left){
+                    int x = event.mouseButton.x;
+                    int y = event.mouseButton.y;
+                    grid.click(x,y);
+                }
+            }
         }
 
         window.clear();

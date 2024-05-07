@@ -16,7 +16,8 @@ public:
     Grid(int rows, int cols, int width, int height);
 
     void drawTo(RenderWindow &window);
-
+    void click(int x, int y);
+    
 };
 
 #endif
