@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 int main()
-{
+{ //prueba
     RenderWindow window(VideoMode(200, 200), "SFML works!");
     CircleShape shape(100.f);
     shape.setFillColor(Color::Green);
