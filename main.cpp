@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
-int main()
+int main() //(pasdpadsa)
 { //prueba
     RenderWindow window(VideoMode(200, 200), "SFML works!");
     CircleShape shape(100.f);
