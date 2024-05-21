@@ -33,7 +33,11 @@ Rectangle rect(Vector2f(60.f,30.f),window);
                     rectangulos.push_back(r);
                     r.drawTo(window);
                 }
-
+             if(event.mouseButton.button== Mouse::Right){
+            for(auto &r : rectangulos){
+            r.changeColorIfClicked(Mouse::getPosition(window));
+        }
+             }
             }
         }
 
